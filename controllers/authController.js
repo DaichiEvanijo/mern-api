@@ -65,11 +65,10 @@ const handleForgetPassword = async(req, res) => {
     to:email,
     subject:"Password reset request", 
     text:`You requested a password reset. Please click the following link to reset your password: \n\n
-    http://localhost:5173/resetpassword/${token}/`
+    https://amazing-kleicha-0fe9bd.netlify.app/resetpassword/${token}/`
   }
-  // https://amazing-kleicha-0fe9bd.netlify.app/resetpassword/${token}
+  // http://localhost:5173/resetpassword/${token}/
 
-  
   transporter.sendMail(mailOptions, (err, info)=> {
     if(err){
       console.log(`email sending fails \n ${err}`)
