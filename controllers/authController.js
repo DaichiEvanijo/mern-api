@@ -65,7 +65,7 @@ const handleForgetPassword = async(req, res) => {
     to:email,
     subject:"Password reset request", 
     text:`You requested a password reset. Please click the following link to reset your password: \n\n
-    https://amazing-kleicha-0fe9bd.netlify.app/resetpassword/${token}/`
+    https://mernfrontend-o4y0.onrender.com/resetpassword/${token}/`
   }
   // http://localhost:5173/resetpassword/${token}/
 
