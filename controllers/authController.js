@@ -64,10 +64,12 @@ const handleForgetPassword = async(req, res) => {
     from:process.env.EMAIL_USER,
     to:email,
     subject:"Password reset request", 
-    text:`You requested a password reset. Please click the following link to reset your password: \n\n ,
-    https://your-production-site.com/typescript-portfolio2/resetpassword/${token}`
-    // http://localhost:5173/typescript-portfolio2/resetpassword/${token}←開発環境下下
+    text:`You requested a password reset. Please click the following link to reset your password: \n\n
+    https://mernfrontend-kazt.onrender.com/resetpassword/${token}`
   }
+  
+  //http://localhost:5173/resetpassword/${token}
+  
   transporter.sendMail(mailOptions, (err, info)=> {
     if(err){
       console.log(`email sending fails \n ${err}`)

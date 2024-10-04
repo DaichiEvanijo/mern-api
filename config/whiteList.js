@@ -1,8 +1,7 @@
 const whiteList = [
-  "https://typescript-portfolio2.onrender.com"
+  "https://mernfrontend-kazt.onrender.com"
 ]
 module.exports = whiteList
-
 
 // "http://127.0.0.1:5500",
 // "http://localhost:3500",
