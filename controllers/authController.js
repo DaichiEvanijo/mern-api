@@ -19,12 +19,12 @@ const handleLogin = async(req, res) => {
         "roles":roles
       }},
       process.env.ACCESS_TOKEN_SECRET,
-      {expiresIn:"10s"}
+      {expiresIn:"10m"}
     );
     const refreshToken = jwt.sign(
       {"username":foundUser.username},
       process.env.REFRESH_TOKEN_SECRET,
-      {expiresIn:"1d"}
+      {expiresIn:"4h"}
     );
     foundUser.refreshToken = refreshToken
     const result = await foundUser.save()
@@ -61,13 +61,12 @@ const handleForgetPassword = async(req, res) => {
     }
   })
   const mailOptions ={
-    from:process.env.EMAIL_USER,
+    from:`Japan Prefecture Post <${process.env.EMAIL_USER}>`,
     to:email,
     subject:"Password reset request", 
-    text:`You requested a password reset. Please click the following link to reset your password: \n\n
-    https://mernfrontend-o4y0.onrender.com/resetpassword/${token}/`
+    text:`You requested a password reset. Please click the following link to reset your password:\nhttps://mernfrontend-o4y0.onrender.com/resetpassword/${token}`
   }
-  // http://localhost:5173/resetpassword/${token}/
+  // http://localhost:5173/resetpassword/${token}
 
   transporter.sendMail(mailOptions, (err, info)=> {
     if(err){
