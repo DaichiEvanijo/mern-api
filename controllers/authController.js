@@ -29,7 +29,7 @@ const handleLogin = async(req, res) => {
     foundUser.refreshToken = refreshToken
     const result = await foundUser.save()
     console.log(`logined and the user info is now \n${result}`)
-    res.cookie("jwt",refreshToken, {httpOnly:true, secure: true, sameSite: 'Strict',   maxAge:24*60*60*1000})
+    res.cookie("jwt",refreshToken, {httpOnly:true, secure: true, sameSite: 'None',   maxAge:24*60*60*1000})
     // res.cookie('jwt', refreshToken, { httpOnly: true, secure: false, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
     //secure:trueはthunder clientでテストするためには消さないといけないがproductionのためには必要
     res.json({accessToken, roles})
