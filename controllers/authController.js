@@ -29,7 +29,7 @@ const handleLogin = async(req, res) => {
     foundUser.refreshToken = refreshToken
     const result = await foundUser.save()
     console.log(`logined and the user info is now \n${result}`)
-    res.cookie("jwt",refreshToken, {httpOnly:true, secure: process.env.NODE_ENV === 'production', sameSite: 'Strict',   maxAge:24*60*60*1000})
+    res.cookie("jwt",refreshToken, {httpOnly:true, secure: true, sameSite: 'Strict',   maxAge:24*60*60*1000})
     // res.cookie('jwt', refreshToken, { httpOnly: true, secure: false, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
     //secure:trueはthunder clientでテストするためには消さないといけないがproductionのためには必要
     res.json({accessToken, roles})
@@ -65,10 +65,10 @@ const handleForgetPassword = async(req, res) => {
     to:email,
     subject:"Password reset request", 
     text:`You requested a password reset. Please click the following link to reset your password: \n\n
-    https://amazing-kleicha-0fe9bd.netlify.app/resetpassword/${token}`
+    http://localhost:5173/resetpassword/${token}/`
   }
+  // https://amazing-kleicha-0fe9bd.netlify.app/resetpassword/${token}
 
-  //http://localhost:5173/resetpassword/${token}
   
   transporter.sendMail(mailOptions, (err, info)=> {
     if(err){
