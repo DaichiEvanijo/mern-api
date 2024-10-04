@@ -1,5 +1,5 @@
 const whiteList = [
-  "https://mernfrontend-kazt.onrender.com"
+  "https://amazing-kleicha-0fe9bd.netlify.app",
 ]
 module.exports = whiteList
 
