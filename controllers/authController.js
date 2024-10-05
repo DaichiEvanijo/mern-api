@@ -64,10 +64,10 @@ const handleForgetPassword = async(req, res) => {
     from:`Japan Prefecture Post <${process.env.EMAIL_USER}>`,
     to:email,
     subject:"Password reset request", 
-    text:`You requested a password reset. Please click the following link to reset your password:\nhttps://mernfrontend-o4y0.onrender.com/resetpassword/${token}`
+    text:`You requested a password reset. Please click the following link to reset your password:\n
+    https://mernfrontend-o4y0.onrender.com/resetpassword/${token}`
   }
   // http://localhost:5173/resetpassword/${token}
-
   transporter.sendMail(mailOptions, (err, info)=> {
     if(err){
       console.log(`email sending fails \n ${err}`)
